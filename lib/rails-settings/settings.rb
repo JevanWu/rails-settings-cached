@@ -42,18 +42,18 @@ module RailsSettings
     end
 
     #retrieve all settings as a hash (optionally starting with a given namespace)
-    def self.get_all(starting_with = nil)
-      vars = thing_scoped.select("var,value")
-      if starting_with
-        vars = vars.where("var LIKE '#{starting_with}%'")
-      end
+    # def self.get_all(starting_with = nil)
+    #   vars = thing_scoped.select("var,value")
+    #   if starting_with
+    #     vars = vars.where("var LIKE '#{starting_with}%'")
+    #   end
 
-      result = {}
-      vars.each do |record|
-        result[record.var] = record.value
-      end
-      result.with_indifferent_access
-    end
+    #   result = {}
+    #   vars.each do |record|
+    #     result[record.var] = record.value
+    #   end
+    #   result.with_indifferent_access
+    # end
     
     def self.where(sql = nil)
       if sql
